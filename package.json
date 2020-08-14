@@ -1,0 +1,23 @@
+{
+  "name": "bss-dev-samplenodeapp",
+  "version": "1.0.0",
+  "description": "BSS Lambda Sample Node App",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf ./dist && tsc && npm run copy && cd dist && npm install --production && cd -",
+    "copy": "cp package*.json *.md dist/",
+    "package": "npm run build && cd dist && zip lambda -r * && cd -",
+    "start": "npm run build && cd dist && tsc -w"
+  },
+  "keywords": [
+    "lambda"
+  ],
+  "author": "Stephen Pidliskey",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^13.13.5",
+    "aws-sdk": "^2.676.0",
+    "tslint": "^6.1.2",
+    "typescript": "^3.8.3"
+  }
+}
